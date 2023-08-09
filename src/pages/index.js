@@ -1,94 +1,40 @@
+// Step 1: Import React
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import Layout from "../components/Layout"
+import * as styles from "../styles/home.module.css"
+import { Link } from "gatsby"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+// Step 2: Define your component
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
-
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
-
+const Home = () => {
   return (
-    <Layout location={location} title={siteTitle}>
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
-
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
+    <Layout>
+      <section className={styles.header}>
+        <div>
+          <h2>yunji Lee </h2>
+          <h3>develop</h3>
+          <p>sjdhbfjhsdbfjhsdbfj</p>
+          <Link className={styles.btn} to="/projects">
+            my portfolio projrct
+          </Link>
+        </div>
+      </section>
     </Layout>
   )
 }
+// export const query = graphql`
+//   query SiteInfo {
+//     site {
+//       siteMetsdata {
+//         description
+//         title
+//       }
+//     }
+//   }
+// `
 
-export default BlogIndex
+// You'll learn about this in the next task, just copy it for now
+export const Head = () => <title>Home Page</title>
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => <Seo title="All posts" />
-
-export const pageQuery = graphql`
-  {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-        }
-      }
-    }
-  }
-`
+// Step 3: Export your component
+export default Home

@@ -1,0 +1,17 @@
+.portfolio {
+  text-align: center;
+}
+.portfolio h2 {
+  font-size: 3em;
+}
+.portfolio h3 {
+  /* color: brown; */
+  /* .portfolio해주지 않으면 다른 페이지 h3모두 변함. 클래스 사용해서 scope 설정! */
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.portfolio p {
+  margin: 16px auto;
+  line-height: 1.5em;
+}
