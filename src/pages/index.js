@@ -11,7 +11,7 @@ const Home = () => {
     <Layout>
       <section className={styles.header}>
         <div>
-          <h2>yunji Lee </h2>
+          <h2>yunji Lee!ihi </h2>
           <h3>develop</h3>
           <p>sjdhbfjhsdbfjhsdbfj</p>
           <Link className={styles.btn} to="/projects">
