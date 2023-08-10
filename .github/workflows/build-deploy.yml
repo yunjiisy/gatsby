@@ -3,7 +3,7 @@ name: Cache static files on AWS S3 storage
 on:
   push:
     paths:
-      - "*/images/*"
+      - "**"
 
 jobs:
   deploy:
