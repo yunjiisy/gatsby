@@ -4,8 +4,8 @@ env:
 
 on:
   push:
-    paths:
-      - "public/**"
+    branch:
+      - gh-pages
 
 jobs:
   deploy:
