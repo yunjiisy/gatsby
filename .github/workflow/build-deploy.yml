@@ -1,9 +1,6 @@
 name: S3 Deployment
 on:
   push:
-    branch:
-      - main
-      - gh-pages
 
 jobs:
   deploy:
@@ -26,4 +23,4 @@ jobs:
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET_NAME }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_S3_SECRET_KEY }}
           CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-          S3_SOURCE_DIR: "build"
+          S3_SOURCE_DIR: "public"
