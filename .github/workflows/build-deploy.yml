@@ -1,7 +1,5 @@
 name: Cache static files on AWS S3 storage
 
-env:
-
 on:
   push:
     paths:
