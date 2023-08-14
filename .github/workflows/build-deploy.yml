@@ -21,7 +21,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_S3_SECRET_KEY }}
           aws-region: ap-northeast-2
 
-      gatsby 빌드한 ./ s3로 업로드
+      # gatsby 빌드한 ./ s3로 업로드
 
       - name: sync static directory with s3
         run: aws s3 sync ./ s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete
