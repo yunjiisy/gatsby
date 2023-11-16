@@ -7,9 +7,9 @@ export default function Layout({ children }) {
     <div className="layout">
       <NavBar />
       <div className="content">{children}</div>
-      <footer>
-        <p>Copyright 2023</p>
-      </footer>
+      {/* <footer className=" ">
+        <p>Copyright 2024</p>
+      </footer> */}
     </div>
   )
 }

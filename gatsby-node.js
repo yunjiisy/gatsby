@@ -1,18 +1,8 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
- */
-
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-// Define the template for blog post
-const blogPost = path.resolve(`./src/templates/blog-post.js`)
+const blogPost = path.resolve(`./src/post/blog-post.js`)
 
-/**
- * @type {import('gatsby').GatsbyNode['createPages']}
- */
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
@@ -25,16 +15,38 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           fields {
             slug
           }
+          tableOfContents
+        }
+      }
+    }
+  `)
+  const group = await graphql(`
+    {
+      allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+        nodes {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            category
+          }
+        }
+        group(field: { frontmatter: { category: SELECT } }) {
+          edges {
+            node {
+              id
+            }
+          }
+          fieldValue
+          totalCount
         }
       }
     }
   `)
 
   if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
-      result.errors
-    )
+    reporter.panicOnBuild(`error loading posts`, result.errors)
     return
   }
 
@@ -54,12 +66,33 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         component: blogPost,
         context: {
           id: post.id,
+          toc: post.tableOfContents,
           previousPostId,
           nextPostId,
         },
       })
     })
   }
+
+  // // 각 페이지에 대한 설정
+  // const pages = [
+  //   { path: "/", component: require.resolve("./src/pages/index.js") },
+  //   { path: "/about", component: require.resolve("./src/pages/about.js") },
+  //   {
+  //     path: "/projects",
+  //     component: require.resolve("./src/pages/projects/index.js"),
+  //   },
+  //   { path: "/blog", component: require.resolve("./src/pages/blog.js") },
+  //   // 다른 페이지도 추가할 수 있음
+  // ]
+
+  // // 페이지 생성
+  // pages.forEach(page => {
+  //   createPage({
+  //     path: `/gatsby${page.path}`, // "gatsby" 접두어 추가
+  //     component: page.component,
+  //   })
+  // })
 }
 
 /**
@@ -116,6 +149,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      category: String
+      image:String
     }
 
     type Fields {

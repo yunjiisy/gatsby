@@ -5,13 +5,14 @@ module.exports = {
     "./src/pages/*.{js,jsx,ts,tsx}",
     "./src/components/**/*.{js,jsx,ts,tsx}",
     "./src/components/*.{js,jsx,ts,tsx}",
+    "./src/templates/*.{js,jsx,ts,tsx}",
+    "./src/post/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
       colors: {
         lightBlue: "#d1dce8",
         darkBlue: "#272c30",
-        // 다른 커스텀 색상들...
       },
     },
   },

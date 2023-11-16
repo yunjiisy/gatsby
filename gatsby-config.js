@@ -12,18 +12,24 @@ module.exports = {
 
   siteMetadata: {
     title: `Isy_Blog`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Gatsby Blog`,
+    author: {
+      name: `yunji Lee`,
+      summary: `hihihi`,
+    },
+    social: {
+      twitter: `twitter!!`,
+    },
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
     `gatsby-plugin-image`,
     "gatsby-plugin-postcss",
-    `gatsby-transformer-sharp`, // Needed for dynamic images
+    `gatsby-transformer-sharp`, // dynamic images
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
+        path: `${__dirname}/contents/blog-posts`,
         name: `blog`,
       },
     },
@@ -50,12 +56,28 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          {
+            resolve: `gatsby-remark-table-of-contents`,
+            options: {
+              exclude: "Table of Contents",
+              tight: false,
+              ordered: false,
+              fromHeading: 1,
+              toHeading: 6,
+              className: "table-of-contents",
+            },
+          },
+          `gatsby-remark-autolink-headers`,
           `gatsby-remark-prismjs`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
         ],
       },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    // `gatsby-remark-code-buttons`,
+    `gatsby-remark-highlight-code`,
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -95,12 +117,24 @@ module.exports = {
                   frontmatter {
                     title
                     date
-                  }
+                    description
+                    category
+                    image
+                  } 
                 }
+                group(field: { frontmatter: { category: SELECT } }) {
+                  edges {
+                    node {
+                      id
+                    }
+                  }
+                  fieldValue
+                  totalCount
+                }     
               }
             }`,
             output: "/rss.xml",
-            title: "Gatsby Starter Blog RSS Feed",
+            title: "Gatsby Blog RSS ",
           },
         ],
       },

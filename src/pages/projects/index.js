@@ -21,7 +21,7 @@ export default function Projects() {
           <div className=" text-left ">
             <h2>Yunji Lee</h2>
             <h3>Web Developer & Mobile Application Developer</h3>
-            <div className="flex ml-2 my-5 items-center">
+            <div className="flex ml-2 my-3 items-center">
               <a href="https://www.naver.com/" className="mr-4">
                 <StaticImage
                   src="../../images/github.svg"
@@ -38,7 +38,7 @@ export default function Projects() {
                   height={25}
                 />
               </a>
-              <a href="https://www.naver.com/">
+              <a href="https://www.naver.com/" className="">
                 <StaticImage
                   src="../../images/linkedin.svg"
                   alt="LinkedIn"
@@ -179,7 +179,7 @@ export default function Projects() {
             />
           </div>
           <div className="grid grid-rows-1 md:grid-cols-2 gap-4 p-12 md:p-8">
-            <div className="card mb-3 transition ease-in-out delay-100  hover:-translate-y-2  duration-200">
+            <div className="card-portfolio mb-3 transition ease-in-out delay-100  hover:-translate-y-2  duration-200">
               <div className="card-header px-3 py-2">
                 <div className="flex justify-between">
                   <div>
@@ -205,7 +205,7 @@ export default function Projects() {
                 </p>
               </div>
             </div>
-            <div className="card mb-3 transition ease-in-out delay-100  hover:-translate-y-2  duration-200">
+            <div className="card-portfolio mb-3 transition ease-in-out delay-100  hover:-translate-y-2  duration-200">
               <div className="card-header px-3 py-2">
                 <div className="flex justify-between">
                   <div>
@@ -216,7 +216,7 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
-              <div className="card-body px-3 py-2">
+              <div className="card-portfolio-body px-3 py-2">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   eleifend auctor dolor, eu tincidunt enim lacinia ac. Maecenas
@@ -231,7 +231,7 @@ export default function Projects() {
                 </p>
               </div>
             </div>
-            <div className="card mb-3 transition ease-in-out delay-100  hover:-translate-y-2  duration-200">
+            <div className="card-portfolio mb-3 transition ease-in-out delay-100  hover:-translate-y-2  duration-200">
               <div className="card-header px-3 py-2">
                 <div className="flex justify-between">
                   <div>
@@ -256,7 +256,7 @@ export default function Projects() {
                 </p>
               </div>
             </div>
-            <div className="card mb-3 transition ease-in-out delay-100  hover:-translate-y-2  duration-200">
+            <div className="card-portfolio mb-3 transition ease-in-out delay-100  hover:-translate-y-2  duration-200">
               <div className="card-header px-3 py-2">
                 <div className="flex justify-between">
                   <div>

@@ -1,0 +1,36 @@
+.blog * {
+  color: rgb(90, 102, 114);
+}
+.blog h2 {
+  font-size: 2em;
+  font-weight: 400;
+}
+.blog h3 {
+  font-size: 3em;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+/* .blog {
+  margin: 30px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
+  align-items: center;
+} */
+.blog {
+  margin: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+/* .category * {
+  color: rgb(39, 43, 48);
+} */
+.category {
+  margin: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}

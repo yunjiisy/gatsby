@@ -1,0 +1,26 @@
+.post * {
+  color: rgb(90, 102, 114);
+}
+.post h1 {
+  font-size: 3em;
+  font-weight: 500;
+}
+.post h2 {
+  font-size: 2em;
+  font-weight: 400;
+}
+.post h2 {
+  font-size: 2em;
+  font-weight: 400;
+}
+.post h3 {
+  font-size: 3em;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.post {
+  margin: 30px 40px;
+  align-items: center;
+}
+.post ul {
+}

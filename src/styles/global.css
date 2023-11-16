@@ -1,5 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
 @tailwind base;
+@layer base {
+  ul {
+    @apply list-disc;
+  }
+  h1 {
+    font-size: 3em;
+    font-weight: 500;
+  }
+  h2 {
+    font-size: 2em;
+    font-weight: 400;
+  }
+  h3 {
+    font-size: 1.5em;
+    font-weight: 400;
+  }
+}
+
 @tailwind components;
 @tailwind utilities;
 
@@ -8,19 +26,19 @@
   padding: 0;
   text-decoration: none;
   font-family: "Open+Sans";
-  color: slategray;
+  /* color: slategray; */
 }
 html,
 body {
-  min-height: 80%;
+  min-height: 100%;
 }
 
 body {
   /* background-color: antiquewhite; */
   background-image: linear-gradient(
     to bottom,
-    rgb(241, 246, 252),
-    rgb(208, 213, 215)
+    rgb(236, 242, 247),
+    rgb(188, 199, 203)
   );
 }
 @layer base {
@@ -31,21 +49,23 @@ body {
 
 .layout {
   max-width: 1024px;
+
   margin: 0 auto;
 }
 
 nav {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 40px auto;
+  display: flex;
+  direction: row;
+  /* grid-template-columns: 1fr 1fr; */
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem auto;
 }
 nav .links {
-  display: inline-block;
-  text-align: right;
 }
 nav a {
   display: inline-block;
-  margin-left: 20px;
+  margin-left: 2rem;
   font-weight: 400;
   padding-bottom: 8px;
   border-bottom: 3px solid transparent;
@@ -55,19 +75,34 @@ nav a:hover {
 }
 footer p {
   text-align: center;
-  color: blue;
+  color: rgb(19, 19, 29);
   margin: 40px;
+}
+.card-container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  word-wrap: break-word;
+  background-color: #fff;
+  border: 1px solid #ffffff;
+  border-radius: 15px;
 }
 
 .card {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  /* width: 46rem; */
+}
+.card-portfolio {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
   word-wrap: break-word;
   background-color: #fff;
-  background-clip: border-box;
-  border: 2px solid #f4f6f8;
+  border: 1px solid #ffffff;
   border-radius: 15px;
 }
 
@@ -88,7 +123,7 @@ footer p {
 .card-header {
   padding: 1rem 2rem;
   margin-bottom: 0;
-  background-color: #ecf1f6;
+  background-color: #eaeff4;
   color: #272c30;
   border-bottom: 2px solid #f4f6f8;
 }
